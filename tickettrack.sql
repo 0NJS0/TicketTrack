@@ -45,9 +45,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `fullname`, `email`, `phone`, `dob`, `password`, `security_question`, `security_answer`, `user_type`) VALUES
-(1, 'Aurko', 'Najmus Saquib', 'njs@gmail.com', '01703330199', '2024-09-24', 'Aurko@000', 'first_pet', 'Cat', 'traveller'),
-(2, 'shamim', 'Shamim Reza', 'shamim@gmail.com', '01703330195', '2024-10-01', 'Shamim@2000', 'sports', 'Football', 'admin'),
-(3, 'masum', 'Masum Billa', 'masum@gmail.com', '01733091241', '2024-12-04', 'Shamim@2000', 'sports', 'F1', 'admin');
+(1, 'Aurko', 'Najmus Saquib', 'njs@gmail.com', '01703330199', '2024-09-24', 'Aurko', 'first_pet', 'Cat', 'traveller'),
+(2, 'shamim', 'Shamim Reza', 'shamim@gmail.com', '01703330195', '2024-10-01', 'Shamim', 'sports', 'Football', 'admin'),
+(3, 'masum', 'Masum Billa', 'masum@gmail.com', '01733091241', '2024-12-04', 'Shamim', 'sports', 'F1', 'admin');
 
 --
 -- Indexes for dumped tables
