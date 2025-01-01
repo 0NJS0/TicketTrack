@@ -57,6 +57,7 @@
         <tr>
             <td><a href="userlist.php">View All Users</a></td>
             <td><a href="approveUser.php">Approve Operators</a></td>
+            <td><a href="insertfaq.php">Insert FAQ</a></td>
             <td><a href="../controller/logout.php">Logout</a></td>
         </tr>
     </table>
