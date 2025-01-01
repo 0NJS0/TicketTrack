@@ -5,7 +5,7 @@
         header('location: login.html');  
     }
 
-    $users = getApprovedUser();
+    $users = getWaitedUser();
 ?>
 
 
@@ -15,7 +15,7 @@
 </head>
 <body>
         <h2>User List</h2>    
-        <a href="./Admin_menu.php"> Back </a> | 
+        <a href="Admin_menu.php"> Back </a> | 
         <a href="../controller/logout.php"> logout </a>
 
         <br>
@@ -43,8 +43,8 @@
                 <td><?=$users[$i]['dob'] ?></td>
                 <td><?=$users[$i]['user_type'] ?></td>
                 <td>
-                    <a href="edit.php?name=<?=$users[$i]['username']?>"> EDIT </a> |
-                    <a href="../controller/delete.php?name=<?=$users[$i]['username']?>"> DELETE </a> 
+                    <a href="../controller/approve.php?name=<?=$users[$i]['username']?>"> Approve </a> |
+                    <a href="../controller/reject.php?name=<?=$users[$i]['username']?>"> Reject </a> 
                 </td>  
             </tr>
 

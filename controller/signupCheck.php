@@ -4,7 +4,7 @@ require('../model/userModel.php');
 
 if (isset($_REQUEST['submit'])) {
 
-    $username = trim($_REQUEST['username']);
+    $username = strtolower(trim($_REQUEST['username']));
     $full_name = trim($_REQUEST['fullname']);
     $password = trim($_REQUEST['password']);
     $confirm_pass = trim($_REQUEST['confirmpassword']);
@@ -12,8 +12,9 @@ if (isset($_REQUEST['submit'])) {
     $phoneno = $_REQUEST['phone'];
     $dob = $_REQUEST['dob'];
     $security_question = $_REQUEST['security_question'];
-    $security_answer = trim($_REQUEST['security_answer']);
+    $security_answer = strtolower(trim($_REQUEST['security_answer']));
     $type = trim($_REQUEST['type']);
+    $approval =1;
     
 
     $usernameconfirm = $emailconfirm = $phone_confirm = $pass_confirm = null;
@@ -175,12 +176,35 @@ if (isset($_REQUEST['submit'])) {
 
 
 
-    if (empty($errors)) {
+    if (empty($errors)) 
+    {
         if (checkUserExists($email, $username)) {
             $errors[] = "Username or email already exists. Please choose a different one.";
         } else {
 
-            $status = addUser($usernameconfirm,
+            if($type=="operator" || $type== "admin") 
+            {
+                $approval=0;
+                $status = addUser($usernameconfirm,
+                                    $full_name_confirm,
+                                    $pass_confirm,
+                                    $emailconfirm,
+                                    $phone_confirm,
+                                    $dob,
+                                    $security_question,
+                                    $security_answer,
+                                    $type,
+                                    $approval);
+                if ($status) {
+                    header('location: ../view/login.html');
+                    exit();
+                } else {
+                    $errors[] = "Failed to create account. Please try again.";
+                }
+            } 
+            else  
+            {
+                $status = addUser($usernameconfirm,
                                 $full_name_confirm,
                                 $pass_confirm,
                                 $emailconfirm,
@@ -188,12 +212,14 @@ if (isset($_REQUEST['submit'])) {
                                 $dob,
                                 $security_question,
                                 $security_answer,
-                                            $type);
-            if ($status) {
-                header('location: ../view/login.html');
-                exit();
-            } else {
-                $errors[] = "Failed to create account. Please try again.";
+                                $type,
+                                $approval);
+                        if ($status) {
+                            header('location: ../view/login.html');
+                        } 
+                    else {
+                        $errors[] = "Failed to create account. Please try again.";
+                    }
             }
         }
     }

@@ -7,7 +7,8 @@
     $totalUsers = getTotalUsers();
     $totalTraveller= getTotalTravellers();
     $totalAdmin= getTotalAdmins();
-    $totalOperator= getTotalOperators()
+    $totalOperator= getTotalOperators();
+    $totalAwaitedUsers=getTotalUnapprovedUsers();
 ?>
 
 <html lang="en">
@@ -39,6 +40,10 @@
             <td>Total Number Of Traveller</td>
             <td><?php echo $totalTraveller; ?> Traveller</td>
         </tr>
+        <tr>
+            <td>Users Wating for Approval</td>
+            <td><?php echo $totalAwaitedUsers; ?> Users</td>
+        </tr>
     </table>
 
     <hr>
@@ -47,10 +52,11 @@
     <h2>Admin Actions</h2>
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
-            <th colspan="2">Actions</th>
+            <th colspan="3">Actions</th>
         </tr>
         <tr>
             <td><a href="userlist.php">View All Users</a></td>
+            <td><a href="approveUser.php">Approve Operators</a></td>
             <td><a href="../controller/logout.php">Logout</a></td>
         </tr>
     </table>

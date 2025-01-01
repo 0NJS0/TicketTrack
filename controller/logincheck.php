@@ -3,7 +3,7 @@
     require_once('../model/userModel.php');
 
     if(isset($_REQUEST['submit'])){
-        $username = trim($_REQUEST['username']);
+        $username = strtolower(trim($_REQUEST['username']));
         $password = trim($_REQUEST['password']);
 
         if($username == null || empty($password)){
@@ -19,10 +19,20 @@
                 if($usertype == 'traveller'){
                 header('location: ../view/Traveller_menu.php');
             }elseif($usertype == 'admin'){
+                if(getapprovalstatus($username)) {
                 header('location: ../view/Admin_menu.php');
+                }
+                else {
+                    echo "Your not Approved by the admin yet";
+                }
             }
                 elseif($usertype == 'operator'){
+                    if(getapprovalstatus($username)){
                     header('location: ../view/Operator_menu.php');
+                    }
+                    else{
+                        echo "Your not Approved by the admin yet";
+                    }
                 }   
             }
         }
