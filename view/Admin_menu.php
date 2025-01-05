@@ -16,7 +16,7 @@
     <title>Home</title>
     </head>
 <body>
-    <h1>Welcome Admin! <?=$_SESSION['username']?></h1> 
+    <h1>Welcome <?=$_SESSION['username']?></h1> 
 
 
     <h2>Dashboard</h2>
@@ -52,12 +52,14 @@
     <h2>Admin Actions</h2>
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
-            <th colspan="3">Actions</th>
+            <th colspan="6">Actions</th>
         </tr>
         <tr>
             <td><a href="userlist.php">View All Users</a></td>
-            <td><a href="approveUser.php">Approve Operators</a></td>
+            <td><a href="approveUser.php">Approve Users</a></td>
             <td><a href="insertfaq.php">Insert FAQ</a></td>
+            <td><a href="offers.php">Insert Promotional Offers</a></td>
+            <td><a href="unreadNotifications.php">Notifications</a></td>
             <td><a href="../controller/logout.php">Logout</a></td>
         </tr>
     </table>

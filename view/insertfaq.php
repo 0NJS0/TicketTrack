@@ -12,6 +12,10 @@
 </head>
 <body>
     <h1>Manage FAQs</h1>
+
+    <a href="./Admin_menu.php"> Back </a>
+    <a href="../controller/logout.php"> Logout </a>
+    <br><br>
     <form method="post" action="../controller/addFAQ.php">
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>

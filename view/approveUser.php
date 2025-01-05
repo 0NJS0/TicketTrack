@@ -4,8 +4,9 @@
     if(!isset($_COOKIE['status'])){
         header('location: login.html');  
     }
+    $user_type_filter = isset($_GET['user_type']) ? $_GET['user_type'] : null;
+    $users = getWaitedUser($user_type_filter);
 
-    $users = getWaitedUser();
 ?>
 
 
@@ -19,6 +20,16 @@
         <a href="../controller/logout.php"> logout </a>
 
         <br>
+
+        <form method="get" action="">
+        <label for="user_type">Filter by User Type: </label>
+        <select name="user_type" id="user_type">
+            <option value="">All</option>
+            <option value="admin">Admin</option>
+            <option value="operator">Operator</option>
+        </select>
+        <input type="submit" value="Filter">
+        </form>
 
         <table border=1>
             <tr>

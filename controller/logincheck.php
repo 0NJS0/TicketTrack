@@ -35,10 +35,14 @@
                     }
                 }   
             }
+            else{
+                echo "User Not Registered";
+                //header("location: ../view/login.html ");
+            }
         }
     }
     else{
-        //echo "invalid request!";
+
         header('location: ../view/login.html');
     }
 

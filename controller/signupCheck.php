@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require('../model/userModel.php');
+require('../model/notificationModel.php');
 
 if (isset($_REQUEST['submit'])) {
 
@@ -196,8 +197,16 @@ if (isset($_REQUEST['submit'])) {
                                     $type,
                                     $approval);
                 if ($status) {
-                    header('location: ../view/login.html');
-                    exit();
+                    $message="$usernameconfirm just registered and waiting for your approval";
+                    $status1= addRegistrationNotification($message);
+
+                    if($status1)
+                    {
+                        header('location: ../view/login.html');
+                    }
+                    else{
+                        echo "Registration Confirmed But notification Error";
+                    }
                 } else {
                     $errors[] = "Failed to create account. Please try again.";
                 }
@@ -215,8 +224,16 @@ if (isset($_REQUEST['submit'])) {
                                 $type,
                                 $approval);
                         if ($status) {
-                            header('location: ../view/login.html');
-                        } 
+                            $message="$usernameconfirm just registered as A Traveller";
+                            $status1= addRegistrationNotification($message);
+                            if($status1)
+                                {
+                                header('location: ../view/login.html');
+                                 }
+                        else{
+                        echo "Registration Confirmed But notification Error";
+                            }
+                    } 
                     else {
                         $errors[] = "Failed to create account. Please try again.";
                     }

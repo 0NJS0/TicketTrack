@@ -1,6 +1,9 @@
 <?php 
 session_start();
 require('../model/FAQModel.php');
+if(!isset($_COOKIE['status'])){
+    header('location: login.html');  
+}
 
 if (isset($_REQUEST['faq_submit'])) {
     $question = trim($_POST['question']);

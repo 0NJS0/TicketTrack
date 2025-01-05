@@ -2,6 +2,9 @@
 
 session_start();
 require('../model/userModel.php');
+if(!isset($_COOKIE['status'])){
+    header('location: login.html');  
+}
 
 if (isset($_REQUEST['update'])) {
 

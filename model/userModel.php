@@ -152,9 +152,14 @@
     return mysqli_fetch_assoc($result);
     }
 
-    function getApprovedUser() {
+    function getApprovedUser($user_type_filter) {
         $con = getConnection();
         $sql = "SELECT * FROM user WHERE is_approved = '1'";
+
+        if ($user_type_filter) {
+            $sql .= " AND user_type = '{$user_type_filter}'";
+        }
+
         $result = mysqli_query($con, $sql);
         $users = [];
         while($row = mysqli_fetch_assoc($result)) {
@@ -174,9 +179,14 @@
         return $users;
     }
 
-    function getWaitedUser() {
+    function getWaitedUser($user_type_filter) {
         $con = getConnection();
         $sql = "SELECT * FROM user WHERE is_approved = '0'";
+
+        if ($user_type_filter) {
+            $sql .= " AND user_type = '{$user_type_filter}'";
+        }
+        
         $result = mysqli_query($con, $sql);
         $users = [];
         while($row = mysqli_fetch_assoc($result)) {
