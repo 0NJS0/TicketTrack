@@ -2,12 +2,16 @@
     session_start();
     require_once('../model/FAQModel.php');
     require_once('../model/userModel.php');
+
     $username=$_SESSION['username'];
-    $type=getUserType($username);
-    $faqs = viewFAQs($type);
+    $usertype=getUserType($username);
+
     if(!isset($_COOKIE['status'])){
         header('location: login.html');  
     }
+    $filter = isset($_GET['type']) ? $_GET['type'] : null;
+
+    $faqs = fetchFAQsbyType($filter,$usertype);
 ?>
 
 <html>
@@ -15,7 +19,19 @@
 <a href="./Traveller_menu.php"> Back </a>
 <a href="../controller/logout.php"> Logout </a><br>
     <h1>FAQs</h1>
-    <br><br>
+    <br>
+
+    <form method="get" action="">
+            Type : 
+            <select name="type">
+                <option value="">All</option>
+                <option value="transaction">Transaction</option>
+                <option value="update_profile">Update Profile</option>
+                <option value="management">Management</option>
+            </select>
+            <input type="submit" value="Filter">
+        </form>
+
 
     <table border="1" cellspacing="0" cellpadding="5">
         <tr>

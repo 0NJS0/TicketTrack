@@ -36,17 +36,17 @@
             <tr>
                 <td>Type Of Question:</td>
                 <td>
-                    <input type="radio" id="user" name="type" value="transaction">Transaction
-                    <input type="radio" id="admin" name="type" value="update_profile">Profile Update
-                    <input type="radio" id="admin" name="type" value="management">Management
+                    <input type="radio" name="type" value="transaction">Transaction
+                    <input type="radio" name="type" value="update_profile">Profile Update
+                    <input type="radio" name="type" value="management">Management
                 </td>
             </tr>
             <tr>
                 <td>Visible To:</td>
                 <td>
-                    <input type="radio" id="user" name="user_type" value="traveller">Traveller
-                    <input type="radio" id="admin" name="user_type" value="both">Both
-                    <input type="radio" id="admin" name="user_type" value="operator">Operator
+                    <input type="radio" name="user_type" value="traveller">Traveller
+                    <input type="radio" name="user_type" value="both">Both
+                    <input type="radio" name="user_type" value="operator">Operator
                 </td>
             </tr>
             <tr>

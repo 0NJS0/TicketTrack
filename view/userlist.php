@@ -5,7 +5,7 @@
         header('location: login.html');  
     }
     $user_type_filter = isset($_GET['user_type']) ? $_GET['user_type'] : null;
-    $users = getApprovedUser($user_type_filter);
+    $users = getApprovedUserFilter($user_type_filter);
 ?>
 
 
@@ -21,14 +21,14 @@
         <br>
 
         <form method="get" action="">
-        <label for="user_type">Filter by User Type: </label>
-        <select name="user_type" id="user_type">
-            <option value="">All</option>
-            <option value="admin">Admin</option>
-            <option value="operator">Operator</option>
-            <option value="traveller">Traveller</option>
-        </select>
-        <input type="submit" value="Filter">
+            User Type : 
+            <select name="user_type">
+                <option value="">All</option>
+                <option value="admin">Admin</option>
+                <option value="operator">Operator</option>
+                <option value="traveller">Traveller</option>
+            </select>
+            <input type="submit" value="Filter">
         </form>
 
         <br>

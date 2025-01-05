@@ -24,13 +24,13 @@ if (isset($_REQUEST['offer_submit'])) {
         } else {
             echo "Failed to add promotional offer.";
         }
+        }
+        else {
+        echo "All fields are required!";
+        }
     }
     else {
-        echo "All fields are required!";
+        header("../view/Admin_menu.php");
     }
-}
-else {
-    header("../view/Admin_menu.php");
-}
 
 ?>

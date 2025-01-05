@@ -152,12 +152,12 @@
     return mysqli_fetch_assoc($result);
     }
 
-    function getApprovedUser($user_type_filter) {
+    function getApprovedUserFilter($user_type) {
         $con = getConnection();
         $sql = "SELECT * FROM user WHERE is_approved = '1'";
 
-        if ($user_type_filter) {
-            $sql .= " AND user_type = '{$user_type_filter}'";
+        if ($user_type) {
+            $sql .= " AND user_type = '{$user_type}'";
         }
 
         $result = mysqli_query($con, $sql);

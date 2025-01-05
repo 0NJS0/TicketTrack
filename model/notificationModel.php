@@ -127,5 +127,15 @@
         }
     }
 
+    function getTotalUnreadNotifications($username) {
+        $con = getConnectionfornotification();
+        $sql = "SELECT * FROM notification_status WHERE username = '{$username}' AND status = 'unread'";
+        $result = mysqli_query($con, $sql);
+        $count = mysqli_num_rows($result);
+        
+        return $count;
+        
+        }
+
 ?>
 

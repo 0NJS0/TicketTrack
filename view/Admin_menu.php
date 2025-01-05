@@ -1,14 +1,17 @@
 <?php
     session_start();
     require_once('../model/userModel.php');
+    require_once('../model/notificationModel.php');
     if(!isset($_COOKIE['status'])){
         header('location: login.html');  
     }
+    $username=$_SESSION['username'];
     $totalUsers = getTotalUsers();
     $totalTraveller= getTotalTravellers();
     $totalAdmin= getTotalAdmins();
     $totalOperator= getTotalOperators();
     $totalAwaitedUsers=getTotalUnapprovedUsers();
+    $totalnotifications=getTotalUnreadNotifications($username);
 ?>
 
 <html lang="en">
@@ -16,13 +19,12 @@
     <title>Home</title>
     </head>
 <body>
-    <h1>Welcome <?=$_SESSION['username']?></h1> 
+    <h1>Welcome <?=$username?></h1> 
 
 
-    <h2>Dashboard</h2>
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
-            <th colspan="2">Dashboard Statistics</th>
+            <th colspan="2">Dashboard</th>
         </tr>
         <tr>
             <td>Total Users</td>
@@ -42,11 +44,15 @@
         </tr>
         <tr>
             <td>Users Wating for Approval</td>
-            <td><?php echo $totalAwaitedUsers; ?> Users</td>
+            <td><a href="approveUser.php"><?php echo $totalAwaitedUsers; ?></a> Users</td>
+        </tr>
+        <tr>
+            <td>Total Unread Notifications</td>
+            <td><a href="unreadNotifications.php"><?php echo $totalnotifications; ?></a></td>
         </tr>
     </table>
 
-    <hr>
+
 
 
     <h2>Admin Actions</h2>
