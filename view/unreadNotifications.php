@@ -1,16 +1,17 @@
 <?php
-session_start();
-require_once('../model/notificationModel.php');
+    session_start();
+    require_once('../model/notificationModel.php');
+    require_once('../model/userModel.php');
 
-if (!isset($_COOKIE['status'])) {
-    header('location: login.html');
-    exit();
+    if (!isset($_COOKIE['status'])) {
+        header('location: login.html');
+        exit();
+        }
 
-    
-}
-
+    $usertype=getUserType($username);
     $username = $_SESSION['username'];
     $notifications = getUnreadNotifications($username);
+    $usertype=getUserType($username);
 
 ?>
 
@@ -18,8 +19,14 @@ if (!isset($_COOKIE['status'])) {
     <title>Notifications</title>
 </head>
 <body>
-    <h2>Notification List</h2>    
-    <a href="./Admin_menu.php"> Back </a>
+    <h2>Notification List</h2>
+    <?php if ($usertype == 'admin') { ?>
+        <a href="./Admin_menu.php"> Back </a>
+    <?php } elseif ($usertype == 'operator') { ?>
+        <a href="./Operator_menu.php"> Back </a>
+    <?php } elseif ($usertype == 'traveller') { ?>
+        <a href="./Traveller_menu.php"> Back </a>
+    <?php } ?>
     <a href="../controller/logout.php"> Logout </a>
     <br><br>
 

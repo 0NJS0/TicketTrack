@@ -234,8 +234,8 @@ if (isset($_REQUEST['submit'])) {
                         echo "Registration Confirmed But notification Error";
                             }
                     } 
-                    else {
-                        $errors[] = "Failed to create account. Please try again.";
+                else {
+                    $errors[] = "Failed to create account. Please try again.";
                     }
             }
         }
