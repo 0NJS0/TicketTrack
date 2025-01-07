@@ -16,7 +16,13 @@
 
 <html>
 <body>
-<a href="./Traveller_menu.php"> Back </a>
+<?php if ($usertype == 'admin') { ?>
+        <a href="./Admin_menu.php"> Back </a>
+    <?php } elseif ($usertype == 'operator') { ?>
+        <a href="./Operator_menu.php"> Back </a>
+    <?php } elseif ($usertype == 'traveller') { ?>
+        <a href="./Traveller_menu.php"> Back </a>
+    <?php } ?>
 <a href="../controller/logout.php"> Logout </a><br>
     <h1>FAQs</h1>
     <br>

@@ -1,11 +1,15 @@
 <?php
     session_start();
     require_once('../model/notificationModel.php');
+    require_once('../model/busModel.php');
     if(!isset($_COOKIE['status'])){
         header('location: login.html');  
     }
     $username=$_SESSION['username'];
     $totalnotifications=getTotalUnreadNotifications($username);
+    $totalBus= getTotalBusbyuser($username);
+    $totalACBus=getTotalACBusbyuser($username);
+    $totalnonACBus=getTotalnonACBusbyuser($username);
 
 ?>
 
@@ -25,6 +29,18 @@
         <tr>
             <td>Total Unread Notifications</td>
             <td><a href="unreadNotifications.php"><?php echo $totalnotifications; ?></a></td>
+        </tr>
+        <tr>
+            <td>Total Buses</td>
+            <td><?php echo $totalBus; ?></td>
+        </tr>
+        <tr>
+            <td>Total AC Buses</td>
+            <td><?php echo $totalACBus; ?></td>
+        </tr>
+        <tr>
+            <td>Total nonAC Buses</td>
+            <td><?php echo $totalnonACBus; ?></td>
         </tr>
     </table>
 

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 05, 2025 at 04:41 PM
+-- Host: localhost
+-- Generation Time: Jan 06, 2025 at 07:52 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `tickettrack`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bustable`
+--
+
+CREATE TABLE `bustable` (
+  `busid` int(11) NOT NULL,
+  `username` text NOT NULL,
+  `bus_type` text NOT NULL,
+  `startlocation` text NOT NULL,
+  `endlocation` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bustable`
+--
+
+INSERT INTO `bustable` (`busid`, `username`, `bus_type`, `startlocation`, `endlocation`) VALUES
+(1, 'reni', 'nonAC', 'Savar', 'Chitagong'),
+(2, 'reni', 'AC', 'Pabna', 'Dhaka');
 
 -- --------------------------------------------------------
 
@@ -172,6 +194,12 @@ INSERT INTO `user` (`id`, `username`, `fullname`, `email`, `phone`, `dob`, `pass
 --
 
 --
+-- Indexes for table `bustable`
+--
+ALTER TABLE `bustable`
+  ADD PRIMARY KEY (`busid`);
+
+--
 -- Indexes for table `faq`
 --
 ALTER TABLE `faq`
@@ -204,6 +232,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bustable`
+--
+ALTER TABLE `bustable`
+  MODIFY `busid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `faq`
