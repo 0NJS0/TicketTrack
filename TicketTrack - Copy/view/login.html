@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 8px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+
+        a {
+            color: #4CAF50;
+        }
+
+
+        .forgot-password, .signup {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Login Form</h1>
+
+    <div class="login-container">
+        <form method="post" action="../controller/logincheck.php">
+            <table>
+                <tr>
+                    <th colspan="2">Login Information</th>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" value="" required /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" value="" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="forgot-password">
+                        <a href="./forgot_password.html">Forgot Password?</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="signup">
+                        No Account? <a href="./signup.html">Sign up</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" value="Login" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

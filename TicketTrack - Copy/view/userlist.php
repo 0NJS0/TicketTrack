@@ -4,28 +4,12 @@
     if(!isset($_COOKIE['status'])){
         header('location: login.html');  
     }
-    $username_filter = isset($_GET['username']) ? $_GET['username'] : null;
     $user_type_filter = isset($_GET['user_type']) ? $_GET['user_type'] : null;
-    $users = getApprovedUserFilter($user_type_filter,$username_filter );
+    $users = getApprovedUserFilter($user_type_filter);
 ?>
 
 
 <html lang="en">
-<script>
-        function searchByUsername() {
-            let username = document.getElementById('search_username').value;
-            let xhttp = new XMLHttpRequest();
-
-            xhttp.open('GET', 'userlist.php?username=' + username, true);
-            xhttp.send();
-
-            xhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    document.getElementById('user_table_body').innerHTML = this.responseText;
-                }
-            };
-        }
-</script>
 <head>
     <title>Userlist </title>
 </head>
@@ -48,25 +32,18 @@
         </form>
 
         <br>
-        Search by Username: <input type="text" id="search_username" onkeyup="searchByUsername()" />
-        <br><br>
-
-        <br>
 
         <table border=1>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Date Of Birth</th>
-                    <th>User Type</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="user_table_body">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Date Of Birth</th>
+                <th>User Type</th>
+                <th>Action</th>
+            </tr>
             <?php 
                 for($i=0; $i<count($users); $i++){ 
             ?>
@@ -84,7 +61,6 @@
                 </td>  
             </tr>
             <?php } ?>
-            </tbody>
         </table>
 </body>
 </html>

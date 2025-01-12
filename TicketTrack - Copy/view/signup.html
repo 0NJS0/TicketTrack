@@ -70,37 +70,37 @@
     <h1>Signup Form</h1>
 
     <div class="signup-container">
-        <form method="post" action="../controller/signupCheck.php" onsubmit="return validateForm()">
+        <form method="post" action="../controller/signupCheck.php">
             <table>
                 <tr>
                     <th colspan="2">Personal Information</th>
                 </tr>
                 <tr>
                     <td>UserName:</td>
-                    <td><input type="text" name="username" id="username" value=""  /></td>
+                    <td><input type="text" name="username" value="" required /></td>
                 </tr>
                 <tr>
                     <td>Full Name:</td>
-                    <td><input type="text" name="fullname" id="fullname" value=""  /></td>
+                    <td><input type="text" name="fullname" value="" required /></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="email" name="email" id="email" value=""  /></td>
+                    <td><input type="email" name="email" value="" required /></td>
                 </tr>
                 <tr>
                     <td>Phone Number:</td>
-                    <td><input type="text" name="phone" id="phone" value="" /></td>
+                    <td><input type="text" name="phone" value="" required /></td>
                 </tr>
                 <tr>
                     <td>Date of Birth:</td>
-                    <td><input type="date" name="dob" id="dob" value=""  /></td>
+                    <td><input type="date" name="dob" value="" required /></td>
                 </tr>
                 <tr>
                     <th colspan="2">Select Account Type</th>
                 </tr>
                 <tr>
                     <td>Account Type:</td>
-                    <td>
+                    <td class="account-type">
                         <input type="radio" id="user" name="type" value="traveller">Traveller
                         <input type="radio" id="admin" name="type" value="admin">Admin
                         <input type="radio" id="operator" name="type" value="operator">Operator
@@ -112,7 +112,7 @@
                 <tr>
                     <td>Security Question:</td>
                     <td>
-                        <select name="security_question" >
+                        <select name="security_question" required>
                             <option value="" disabled selected>Select a question</option>
                             <option value="sports">What is your Favourite Sports?</option>
                             <option value="first_pet">What was the name of your first pet?</option>
@@ -122,18 +122,18 @@
                 </tr>
                 <tr>
                     <td>Answer:</td>
-                    <td><input type="text" name="security_answer" value=""  /></td>
+                    <td><input type="text" name="security_answer" value="" required /></td>
                 </tr>
                 <tr>
                     <th colspan="2">Account Security</th>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type="password" name="password" id="password" value=""  /></td>
+                    <td><input type="password" name="password" value="" required /></td>
                 </tr>
                 <tr>
                     <td>Confirm Password:</td>
-                    <td><input type="password" name="confirmpassword" id="confirmPassword" value=""  /></td>
+                    <td><input type="password" name="confirmpassword" value="" required /></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="security-info">
@@ -145,66 +145,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    function validateForm() {
-        let username = document.getElementById('username').value.trim();
-        let fullname = document.getElementById('fullname').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let dob = document.getElementById('dob').value;
-        let password = document.getElementById('password').value;
-        let confirmPassword = document.getElementById('confirmPassword').value;
-
-        let currentDate = new Date();
-        let birthDate = new Date(dob);
-        let age = currentDate.getFullYear() - birthDate.getFullYear();
-        let monthDifference = currentDate.getMonth() - birthDate.getMonth();
-        if (monthDifference < 0 || (monthDifference == 0 && currentDate.getDate() < birthDate.getDate())) {
-            age--;
-        }
-
-        if (username === "") {
-        alert("Username is required.");
-        return false;
-        }
-
-        if (fullname === "") {
-            alert("Full name is required.");
-            return false;
-        }
-
-        if (email === "") {
-            alert("Email is required.");
-            return false;
-        }
-
-        if (dob === "") {
-            alert("Date of birth is required.");
-            return false;
-        }
-
-        if (age < 13) {
-            alert("You must be at least 13 years old to sign up.");
-            return false;
-        }
-
-        if (password === "") {
-            alert("Password is required.");
-            return false;
-        }
-
-        if (confirmPassword === "") {
-            alert("Confirm password is required.");
-            return false;
-        }
-
-        if (password !== confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-
-    alert("Form submitted successfully!");
-    return true;
-}
-
-</script>
