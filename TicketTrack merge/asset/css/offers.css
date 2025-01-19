@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="date"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.back-link {
+    position: absolute;
+    top: 50px; 
+    left: 20px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.back-link a {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+.date-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.date-fields input {
+    width: 48%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.remove-link {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.remove-link:hover {
+    text-decoration: underline;
+}

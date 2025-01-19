@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+}
+
+.login-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    padding: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    width: 125%;
+    font-size: 16px;
+}
+
+
+a {
+    color: #4CAF50;
+}
+
+
+.forgot-password, .signup {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+

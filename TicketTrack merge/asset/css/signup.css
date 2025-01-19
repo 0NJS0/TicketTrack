@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+}
+
+.signup-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="password"], select {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+
+a {
+    margin:47%;
+    color: #4CAF50;
+}
