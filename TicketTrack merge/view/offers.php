@@ -14,36 +14,37 @@ $offers = getAllPromotionalOffers();
 <html lang="en">
 <head>
 <link rel="stylesheet" href="../asset/css/offers.css">
+<script src="../asset/javascript/offers.js" defer></script>
     <title>Add Promotional Offer</title>
 </head>
 <body>
 
     <div class="container">
         <h2>Add Promotional Offer</h2>
-        <form method="post" action="../controller/offercheck.php">
+        <form method="post"  onsubmit="return validateOffer()">
             <div>
                 Title:
-                <input type="text" name="title" required>
+                <input type="text" id="title" name="title" >
             </div>
             <div>
                 Description:
-                <textarea name="description" rows="5" cols="50" required></textarea>
+                <textarea name="description" id="description" rows="5" cols="50" ></textarea>
             </div>
 
             <div class="date-fields">
                 <div>
                     Start Date:
-                    <input type="date" name="start_date" required>
+                    <input type="date" id="startdate" name="start_date" >
                 </div>
                 <div>
                     End Date:
-                    <input type="date" name="end_date" required>
+                    <input type="date" id="enddate" name="end_date" >
                 </div>
             </div>
 
             <div>
                 Discount Amount:
-                <input type="number" name="amount" required>
+                <input type="number" id="amount" name="amount" >
             </div>
             <div>
                 <input type="submit" name="offer_submit" value="Insert Offer">

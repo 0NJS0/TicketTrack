@@ -6,8 +6,6 @@ function validateForm() {
     let user_type = document.querySelector('input[name="user_type"]:checked');
 
 
-    clearErrors();
-
     let errors = [];
 
 
@@ -49,7 +47,6 @@ function validateForm() {
     };
 
     let xhttp = new XMLHttpRequest();
-
     let data= JSON.stringify(jsonData);
     xhttp.open('POST', '../controller/addFAQ.php', true);
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -74,11 +71,4 @@ function validateForm() {
 function displayErrors(errors) {
     let errorMessages = errors.join("\n"); 
     alert(errorMessages); 
-}
-
-function clearErrors() {
-    let errorMessages = document.querySelectorAll('.error-message');
-    errorMessages.forEach(error => {
-        error.remove();
-    });
 }
